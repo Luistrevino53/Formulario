@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>En busca de los guardianes</title>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+  <body ng-app="app" ng-cloak>
+    <div class="top-page">
+      <br><br>
+      <h3 class="top-title col-md-offset-1">Subcomision de Caminantes<small> - En busca de los Guardianes</small></h3>
+    </div>
+
+    <div class="container" ng-controller="addController">
+      <md-tabs>
+        <md-tab>
+          <md-tab-label>Equipo</md-tab-label>
+          <md-tab-body>
+            <md-input-container md-no-float>
+              <input type="text" required placeholder="Nombre del Equipo" ng-model="registry.name">
+            </md-input-container>
+            <br>
+            <md-input-container md-no-float>
+              <input type="text" required placeholder="Correo Electronico" ng-model="registry.email">
+            </md-input-container>
+
+            <md-input-container md-no-float>
+              <input type="text" placeholder="Telefono" required ng-model="registry.phone">
+            </md-input-container>
+          </md-tab-body>
+        </md-tab>
+
+
+        <md-tab>
+          <md-tab-label>Scouters</md-tab-label>
+          <md-tab-body>
+            <md-content layout-padding>
+              <div>
+                <div layout-gt-xs="row">
+                  <md-input-container class="md-block" flex-gt-sm>
+                    <label>Nombre</label>
+                    <input type="text" required ng-model="scouter.name">
+                  </md-input-container>
+
+                  <md-input-container>
+                    <label>Cum</label>
+                    <input type="text" required ng-model="scouter.cum">
+                  </md-input-container>
+                </div>
+
+
+                <md-input-container>
+                  <label>Telefono</label>
+                  <input type="text" required ng-model="scouter.phone">
+                </md-input-container>
+
+                <md-input-container>
+                  <label>Correo Electronico</label>
+                  <input type="text" required ng-model="scouter.email">
+                </md-input-container>
+
+                <md-input-container>
+                  <label>Grupo</label>
+                  <input type="text" required ng-model="scouter.group">
+                </md-input-container>
+              </div>
+            </md-content>
+          </md-tab-body>
+        </md-tab>
+
+        <md-tab>
+          <md-tab-label>Caminantes</md-tab-label>
+          <md-tab-body>
+            <md-content layout-padding>
+              <div>
+                <div layout-gt-xs="row">
+                  <md-input-container class="md-block" flex-gt-sm>
+                    <label>Nombre</label>
+                    <input type="text" required ng-model="caminante.name">
+                  </md-input-container>
+
+                  <md-input-container>
+                    <label>Cum</label>
+                    <input type="text" required ng-model="caminante.cum">
+                  </md-input-container>
+                </div>
+
+
+                <md-input-container>
+                  <label>Telefono</label>
+                  <input type="text" required ng-model="caminante.phone">
+                </md-input-container>
+
+                <md-input-container>
+                  <label>Correo Electronico</label>
+                  <input type="text" required ng-model="caminante.email">
+                </md-input-container>
+
+                <md-input-container>
+                  <label>Grupo</label>
+                  <input type="text" required ng-model="caminante.group">
+                </md-input-container>
+              </div>
+            </md-content>
+            <md-list>
+              <md-list-item class="md-2-line" ng-repeat="item in caminantes">
+                <md-checkbox ng-model="item.done"></md-checkbox>
+                <div class="md-list-item-text">
+                  <h3>{{item.name}}</h3>
+                  <p>{{item.cum}}</p>
+                </div>
+              </md-list-item>
+            </md-list>
+          </md-tab-body>
+        </md-tab>
+      </md-tabs>
+    </div>
+
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
